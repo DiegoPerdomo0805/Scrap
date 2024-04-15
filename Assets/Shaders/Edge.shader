@@ -4,6 +4,7 @@ Shader "Unlit/NewUnlitShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _EdgeDarkenAmount ("Edge Darken Amount", Range(0, 1)) = 0.5
+        _SepiaAmount ("Sepia Amount", Range(0, 1)) = 0.5
     }
     SubShader
     {
@@ -31,6 +32,7 @@ Shader "Unlit/NewUnlitShader"
 
             sampler2D _MainTex;
             float _EdgeDarkenAmount;
+            float _SepiaAmount;
 
             v2f vert (appdata v)
             {
@@ -44,8 +46,11 @@ Shader "Unlit/NewUnlitShader"
             half4 frag (v2f i) : SV_Target
             {
                 half4 color = tex2D(_MainTex, i.uv);
+
+                // Darken edges
                 float edgeFactor = 1.0 - smoothstep(0.0, _EdgeDarkenAmount, length(i.uv - 0.5));
                 color.rgb *= edgeFactor;
+                color.rgb = lerp(color.rgb, float3(0.393, 0.349, 0.272) + (color.rgb - 0.5) * 2.0, _SepiaAmount);
                 return color;
             }
             ENDCG

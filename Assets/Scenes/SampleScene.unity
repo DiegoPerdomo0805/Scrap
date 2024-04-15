@@ -338,7 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeDark: {fileID: 2100000, guid: 53a406ec83f1000419f8d4ed86044536, type: 2}
-  edgeLight: 0.85
+  edgeLight: 0.95
+  Sepia: 0.25
 --- !u!1 &1837887146
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0492bfe6dec83984396e80ea2b2e1e99, type: 2}
+  - {fileID: 2100000, guid: 65265e6faa183d14b81515dee89c66b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -474,9 +475,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128105127}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_Drag: 1
+  m_AngularDrag: 6.375
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
